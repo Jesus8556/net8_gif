@@ -1,17 +1,22 @@
-# Imagen base
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Utiliza la imagen oficial de .NET SDK como base
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
 
-# Copiar archivos de proyecto y restaurar dependencias
+# Copia el archivo csproj y restaura las dependencias
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copiar y compilar la aplicación
+# Copia el resto del código y compila la aplicación
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Crear imagen final
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Configura la imagen de producción
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
-COPY --from=build /app/out ./
+COPY --from=build-env /app/out .
+
+# Exponer el puerto 5214
+EXPOSE 5214
+
+# Comando para ejecutar la aplicación
 ENTRYPOINT ["dotnet", "api.dll"]
