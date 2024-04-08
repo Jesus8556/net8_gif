@@ -35,7 +35,7 @@ public class LinkExtractor
                     links.Add(new Link
                     {
                         Text = gif.id,
-                        Href = gif.media[0].webm.preview.ToString()
+                        Href = gif.media[0].gif.url.ToString()
                     });
                 }
             }

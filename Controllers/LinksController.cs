@@ -12,10 +12,16 @@ public class LinksController : ControllerBase
         _linkExtractor = linkExtractor;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Get(int limit = 8)
+    [HttpGet("{index}")]
+    public async Task<IActionResult> Get(int index, int limit = 8)
     {
         var links = await _linkExtractor.ExtractLinksAsync(limit);
-        return Ok(links);
+
+        if (index < 0 || index >= links.Count)
+        {
+            return NotFound();
+        }
+
+        return Ok(links[index]);
     }
 }

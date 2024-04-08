@@ -26,3 +26,4 @@ C:\Users\jesus811\Desktop\6 CICLO\NET\api\api\obj\Debug\net8.0\ref\api.dll
 C:\Users\jesus811\Desktop\6 CICLO\NET\api\api\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\jesus811\Desktop\6 CICLO\NET\api\api\obj\Debug\net8.0\api.csproj.AssemblyReference.cache
 C:\Users\jesus811\Desktop\6 CICLO\NET\api\api\obj\Debug\net8.0\api.csproj.Up2Date
+C:\Users\jesus811\Desktop\6 CICLO\NET\api\api\obj\Debug\net8.0\api.sourcelink.json
